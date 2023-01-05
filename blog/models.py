@@ -6,6 +6,9 @@ class Blog(models.Model):
 	pub_date = models.DateField(auto_now = False,auto_now_add = False)
 	body = models.TextField()
 	blog_image = models.ImageField(upload_to ='blog-images/')
+
+	def summary(self):
+		return self.body[:100]
 # title
 # pub_date
 # body
