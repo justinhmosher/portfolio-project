@@ -4,7 +4,7 @@ from django.db import models
 class Blog(models.Model):
 	title = models.CharField(max_length = 200)
 	pub_date = models.DateField(auto_now = False,auto_now_add = False)
-	body = models.CharField(max_length = 30000)
+	body = models.TextField()
 	blog_image = models.ImageField(upload_to ='blog-images/')
 # title
 # pub_date
