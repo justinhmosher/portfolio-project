@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="en">
+{% load static %}
   <head>
-    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.108.0">
-    <title>Justin Mosher's Bio</title>
+    <title>{{blig.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+}
 
     
 
@@ -104,44 +105,14 @@
 
 <main>
 
-  <section class="py-5 text-center container">
-
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Justin's Home Page</h1>
-        <p class="lead text-muted">Welcome to my online resume.  I recently created this webiste via python and html.  I hope you enjoy!</p>
-        <p>
-          <a href="mailto:justinhmosher@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img class = "img-thumbnail"src="{% static 'Profile_Picture.jpg' %}" height="250" width="250" />
-      </div>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-        {% for job in jobs.all %}
-
-        <div class="col">
-          <div class="card shadow-sm">
-              <img class = "card-img-top img-fluid"src="{{ job.image.url }}" height="250" width="250" class="img-thumbnail" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              <div class="d-flex justify-content-between align-items-center">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {% endfor %}
-        
-      </div>
-    </div>
-  </div>
-
+	<div class="container-sm">
+		  <h1 class="text-center pt-5">{{ blog.title }}</h1>
+		 <div class = "text-center"> 
+		  <img src="{{ blog.blog_image.url }}" height="500" width="500" class = "img-fluid image-thumbnail"/>
+		 </div> 
+		  <p>{{ blog.body }}</p>
+		  {{ blog.pub_date }}
+	</div>	  
 </main>
 
 <footer class="text-muted py-5">
